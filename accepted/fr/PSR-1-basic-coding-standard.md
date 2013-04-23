@@ -3,7 +3,7 @@ La norme de codage de base
 
 Cette section de la norme comprend ce qu'il convient de prendre en compte des
 éléments standards de codage nécessaires pour assurer un niveau élevé
-d'interopérabilité technique pour le partage du Code PHP.
+d'interopérabilité technique pour le partage du code PHP.
 
 Les mots clés "DOIT", "NE DOIT PAS", "OBLIGATOIRE", "DEVRA", "NE DEVRA PAS", "DEVRAIT", "NE DEVRAIT PAS", "RECOMMENDÉ", "PEUT" et "OPTIONNELLE" dans ce document doivent être interprétés comme décrit dans [RFC 2119][].
 
@@ -40,11 +40,11 @@ Le code PHP DOIT utiliser uniquement UTF-8 sans BOM.
 
 ### 2.3. Les effets secondaires
 
-Un fichier DEVRAIT  déclarer nouveaux symboles (classes, fonctions, constants, etc.) et ne pas causer d’effets secondaires, ou il DEVRAIT exécuter de la logique avec effets secondaires, mais NE DEVRAIT PAS faire les deux.
+Un fichier DEVRAIT déclarer nouveaux symboles (classes, fonctions, constantes, etc.) et ne pas causer d’effets secondaires, ou il DEVRAIT exécuter de la logique avec effets secondaires, mais NE DEVRAIT PAS faire les deux.
 
 La phrase "effets secondaires" signifie l’exécution de la logique qui n’est pas lié directement à la déclaration de classes, fonctions, constantes, etc., *simplement par l’inclusion du fichier.*
 
-Les "effets secondaires" comprennent, mais ne sont pas limités à : générer une sortie, utilisation explicite de `require` ou `include`, connexion à des services externes, modification de paramètres ini, émission de erreurs ou exceptions, modification de variables globales ou statiques, lecture ou écriture dans un fichier et ainsi de suite.
+Les "effets secondaires" comprennent, mais ne sont pas limités à : générer une sortie, utilisation explicite de `require` ou `include`, connexion à des services externes, modification de paramètres ini, émission d'erreurs ou d'exceptions, modification de variables globales ou statiques, lecture ou écriture dans un fichier et ainsi de suite.
 
 Le code suivant est un exemple d’un fichier avec déclarations et effets secondaires ; c’est-à-dire, un exemple de ce qu’il faut éviter :
 
@@ -67,7 +67,7 @@ function foo()
 ```
 
 L'exemple suivant est un fichier qui contient des déclarations sans
-effets secondaires, c'est à dire, un exemple à émuler :
+effets secondaires, c’est-à-dire, un exemple à émuler :
 
 ```php
 <?php
@@ -93,7 +93,7 @@ Les espaces de nom et les classes DOIVENT suivre [PSR-0][].
 
 Cela signifie que chaque classe se trouve seule dans un fichier, et dans un espace de nom d'au moins un niveau : le nom d'un vendor de plus haut niveau.
 
-Les noms de classes DOIVENT être déclarées en `StudlyCaps`.
+Les noms de classes DOIVENT être déclarés en `StudlyCaps`.
 
 Le code écrit pour PHP 5.3 et après DOIT utiliser les espaces de noms formels.
 
@@ -101,14 +101,14 @@ Par exemple :
 
 ```php
 <?php
-// PHP 5.3 and later:
+// PHP 5.3 et supérieur:
 namespace Vendor\Model;
 
 class Foo
 {
 }
 ```
-Le code écrit pour 5.2.x et avant DEVRAIT utiliser la convention pseudo-espace de nom `Vendor_` préfixés par les noms de classe.
+Le code écrit pour 5.2.x et avant DEVRAIT utiliser la convention pseudo-espace de nom `Vendor_` préfixée par les noms de classe.
 
 ```php
 <?php
@@ -143,9 +143,9 @@ class Foo
 
 Ce guide évite intentionnellement toute recommandation concernant l'utilisation des noms de propriétés `$StudlyCaps`, `$camelCase` ou `$under_score`.
 
-Quelle que soit la convention de nommage utilisée, elle DOIT être appliquées de manière cohérente dans un cadre raisonnable. Cette portée peut être au niveau vendor, paquet, classe ou méthode.
+Quelle que soit la convention de nommage utilisée, elle DOIT être appliquée de manière cohérente dans un cadre raisonnable. Cette portée peut être au niveau vendor, paquet, classe ou méthode.
 
 ### 4.3. Les Méthodes
 
-Les noms de méthodes DOIVENT être déclarées comme `camelCase()`.
+Les noms de méthodes DOIVENT être déclarés comme `camelCase()`.
 
